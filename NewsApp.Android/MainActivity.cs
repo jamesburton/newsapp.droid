@@ -13,6 +13,8 @@ namespace NewsApp.Android
     {
         int count = 1;
 
+        ListView newsList;
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -22,9 +24,11 @@ namespace NewsApp.Android
 
             // Get our button from the layout resource,
             // and attach an event to it
-            Button button = FindViewById<Button>(Resource.Id.MyButton);
+            //Button button = FindViewById<Button>(Resource.Id.MyButton);
 
-            button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
+            //button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
+
+            //newsList = FindViewById<ListView>(Resource.Id.newsList);
         }
     }
 }
