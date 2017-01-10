@@ -40,8 +40,11 @@ namespace NewsApp.Android
             };
             var allItems = feeds.SelectMany(feed => feed.FeedItems);
             var itemArray = allItems.ToArray();
+            //var itemString = itemArray.Select(item => item.Title).ToArray();
+            var itemStrings = new[] { "Example entry", "Another entry", "Third item" };
 
-            newsList.Adapter = new ArrayAdapter(this, Resource.Layout.TextViewItem, itemArray.Select(item => item.Title).ToArray());
+            //newsList.Adapter = new ArrayAdapter(this, Resource.Layout.TextViewItem, itemStrings);
+            newsList.Adapter = new ArrayAdapter(this, Resource.Layout.TextViewItem, itemStrings);
 
             var statusText = FindViewById<TextView>(Resource.Id.statusText);
             statusText.Text = "Showing " + itemArray.Count() + " items";
