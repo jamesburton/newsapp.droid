@@ -10,7 +10,7 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:layout_alignParentTop="true"
-    android:background="#FC9"
+    android:background="#333"
     android:gravity="center" >
 
     <!--
@@ -83,11 +83,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_alignParentBottom="true"
-    android:background="#FC0"
+    android:background="#000"
     android:gravity="center" >
 
     <LinearLayout android:orientation="horizontal"
-          android:layout_width="match_parent"
+          android:layout_width="fill_parent"
           android:layout_height="wrap_content">
       <TextView android:id="@+id/statusLabel"
           android:layout_width="match_parent"
@@ -102,6 +102,7 @@
   </RelativeLayout>
 
   <!-- Scrollable Contents -->
+  <!--
   <ScrollView
       android:id="@+id/scrollableContents"
       android:layout_width="fill_parent"
@@ -114,5 +115,12 @@
       android:layout_height="wrap_content"
       android:id="@+id/newsList" />
   </ScrollView>
+  -->
+  <ListView
+    android:layout_width="fill_parent"
+    android:layout_height="5dip"
+    android:id="@+id/newsList"
+    android:layout_above="@id/footer"
+    android:layout_below="@id/header" />
 
 </RelativeLayout>

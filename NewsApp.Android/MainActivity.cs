@@ -48,6 +48,16 @@ namespace NewsApp.Android
 
             var statusText = FindViewById<TextView>(Resource.Id.statusText);
             statusText.Text = "Showing " + itemArray.Count() + " items";
+
+            newsList.ItemClick += newsList_ItemClick;
+        }
+
+        void newsList_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            e.View.Selected = true;
+            //If the below two lines are added, it highlights the menu in the action bar and does nothing with the ListView
+            //e.View.RequestFocusFromTouch();
+            //e.View.RequestFocus();
         }
     }
 }
