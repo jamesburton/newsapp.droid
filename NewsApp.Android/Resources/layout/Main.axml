@@ -34,8 +34,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Categories:" 
-            android:textStyle="bold"/>
+            android:text="Categories:"
+            android:textStyle="bold" />
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -55,8 +55,17 @@
             android:layout_height="wrap_content"
             android:id="@+id/newsList" />
     </ScrollView>
-    <TextView
+  <LinearLayout android:orientation="horizontal"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+    <TextView android:id="@+id/statusLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Status: ..." />
+        android:textStyle="bold"
+        android:text="Status: " />
+    <TextView android:id="@+id/statusText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="..." />
+  </LinearLayout>
 </LinearLayout>

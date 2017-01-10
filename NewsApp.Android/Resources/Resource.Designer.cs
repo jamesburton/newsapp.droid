@@ -63,14 +63,26 @@ namespace NewsApp.Android
 			// aapt resource value: 0x7f050000
 			public const int bbcCheck = 2131034112;
 			
+			// aapt resource value: 0x7f050007
+			public const int itemTitle = 2131034119;
+			
 			// aapt resource value: 0x7f050004
 			public const int newsList = 2131034116;
 			
 			// aapt resource value: 0x7f050001
 			public const int reutersCheck = 2131034113;
 			
+			// aapt resource value: 0x7f050005
+			public const int statusLabel = 2131034117;
+			
+			// aapt resource value: 0x7f050006
+			public const int statusText = 2131034118;
+			
 			// aapt resource value: 0x7f050003
 			public const int technologyCheck = 2131034115;
+			
+			// aapt resource value: 0x7f050008
+			public const int textItem = 2131034120;
 			
 			// aapt resource value: 0x7f050002
 			public const int ukCheck = 2131034114;
@@ -90,6 +102,12 @@ namespace NewsApp.Android
 			
 			// aapt resource value: 0x7f030000
 			public const int Main = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int NewsItem = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int TextViewItem = 2130903042;
 			
 			static Layout()
 			{

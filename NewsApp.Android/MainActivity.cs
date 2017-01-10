@@ -6,6 +6,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using NewsApp.Android.Models;
+using System.Linq;
 
 namespace NewsApp.Android
 {
@@ -37,6 +38,13 @@ namespace NewsApp.Android
                 new Feed("http://feeds.reuters.com/reuters/UKdomesticNews?format=xml", "Reuters", "UK"),
                 new Feed("http://feeds.reuters.com/reuters/technologyNews?format=xml", "Reuters", "Technology")
             };
+            var allItems = feeds.SelectMany(feed => feed.FeedItems);
+            var itemArray = allItems.ToArray();
+
+            newsList.Adapter = new ArrayAdapter(this, Resource.Layout.TextViewItem, itemArray.Select(item => item.Title).ToArray());
+
+            var statusText = FindViewById<TextView>(Resource.Id.statusText);
+            statusText.Text = "Showing " + itemArray.Count() + " items";
         }
     }
 }
