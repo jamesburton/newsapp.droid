@@ -5,6 +5,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using NewsApp.Android.Models;
 
 namespace NewsApp.Android
 {
@@ -28,7 +29,14 @@ namespace NewsApp.Android
 
             //button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
 
-            //newsList = FindViewById<ListView>(Resource.Id.newsList);
+            newsList = FindViewById<ListView>(Resource.Id.newsList);
+
+            var feeds = new[] {
+                new Feed("http://feeds.bbci.co.uk/news/uk/rss.xml", "BBC", "UK"),
+                new Feed("http://feeds.bbci.co.uk/news/technology/rss.xml", "BBC", "Technology"),
+                new Feed("http://feeds.reuters.com/reuters/UKdomesticNews?format=xml", "Reuters", "UK"),
+                new Feed("http://feeds.reuters.com/reuters/technologyNews?format=xml", "Reuters", "Technology")
+            };
         }
     }
 }
