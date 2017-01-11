@@ -55,7 +55,44 @@ namespace NewsApp.Android
             updateItems();
 
             newsList.ItemClick += newsList_ItemClick;
+
+            /*
+            bbcCheck.Click += BbcCheck_Click;
+            reutersCheck.Click += ReutersCheck_Click;
+            ukCheck.Click += UkCheck_Click;
+            technologyCheck.Click += TechnologyCheck_Click;
+            */
+            bbcCheck.Click += OptionsCheckBox_Click;
+            reutersCheck.Click += OptionsCheckBox_Click;
+            ukCheck.Click += OptionsCheckBox_Click;
+            technologyCheck.Click += OptionsCheckBox_Click;
         }
+
+        private void OptionsCheckBox_Click(object sender, EventArgs e)
+        {
+            updateItems();
+        }
+        /*
+        private void TechnologyCheck_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void UkCheck_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ReutersCheck_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void BbcCheck_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+        */
 
         void updateItems()
         {
@@ -82,13 +119,27 @@ namespace NewsApp.Android
 
         void setItemDetails()
         {
-
+            if (selectedItem == null) {
+                title.Text = "";
+                author.Text = "";
+                published.Text = "";
+                link.Text = "";
+                description.Text = "";
+            } else
+            {
+                title.Text = selectedItem.Title;
+                author.Text = selectedItem.Author;
+                published.Text = selectedItem.Published.ToString();
+                link.Text = selectedItem.Link;
+                description.Text = selectedItem.Description;
+            }
         }
 
         void newsList_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
+            var item = newsList.GetItemAtPosition(e.Position);
 #if DEBUG
-            System.Diagnostics.Debug.WriteLine("newsList_ItemClick, e.Position=", e.Position, ", e.Selected=", e.View.Selected, ", e.Id=", e.Id);
+            System.Diagnostics.Debug.WriteLine("newsList_ItemClick, e.Position=" + e.Position + ", e.Selected=" + e.View.Selected + ", e.Id=" + e.Id, ", item=", item);
 #endif
             e.View.Selected = !e.View.Selected;
             //If the below two lines are added, it highlights the menu in the action bar and does nothing with the ListView
@@ -103,6 +154,7 @@ namespace NewsApp.Android
                 setItemDetails();
 #if DEBUG
                 System.Diagnostics.Debug.WriteLine("newsList_ItemClick showing entry, e.Position=", e.Position, ", e.Selected=", e.View.Selected, ", e.Id=", e.Id);
+                //System.Diagnostics.Debug.WriteLine("newsList_ItemClick showing entry, e.Position=", e.Position, ", e.Selected=", e.View.Selected, ", e.Id=", e.Id, ", sender=", Newtonsoft.Json.JsonConvert.SerializeObject(sender));
 #endif
             }
             else
