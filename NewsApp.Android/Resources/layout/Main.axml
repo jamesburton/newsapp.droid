@@ -122,5 +122,6 @@
     android:id="@+id/newsList"
     android:layout_above="@id/footer"
     android:layout_below="@id/header" />
-
+  
+  
 </RelativeLayout>

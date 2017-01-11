@@ -26,6 +26,8 @@ namespace NewsApp.Android
 		
 		public static void UpdateIdValues()
 		{
+			global::PCLStorage.Resource.String.ApplicationName = global::NewsApp.Android.Resource.String.ApplicationName;
+			global::PCLStorage.Resource.String.Hello = global::NewsApp.Android.Resource.String.Hello;
 		}
 		
 		public partial class Attribute
