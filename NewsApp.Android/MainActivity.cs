@@ -131,7 +131,11 @@ namespace NewsApp.Android
                 author.Text = selectedItem.Author;
                 published.Text = selectedItem.Published.ToString();
                 link.Text = selectedItem.Link;
-                description.Text = selectedItem.Description;
+                //description.Text = selectedItem.Description;
+                //description.SetText(global::Android.Text.Html.FromHtml(selectedItem.Description, global::Android.Text.FromHtmlOptions.ModeCompact).Handle);
+                //description.TextFormatted = global::Android.Text.Html.FromHtml(selectedItem.Description, global::Android.Text.FromHtmlOptions.ModeCompact);
+                // NB: The version below is deprecated, but the recommended one above throws an error, so using the deprecated version
+                description.TextFormatted = global::Android.Text.Html.FromHtml(selectedItem.Description);
             }
         }
 
