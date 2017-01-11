@@ -89,15 +89,54 @@
     <LinearLayout android:orientation="horizontal"
           android:layout_width="fill_parent"
           android:layout_height="wrap_content">
+      <LinearLayout  android:id="@+id/itemDetails"
+          android:orientation="horizontal"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:visibility="gone"
+          >
+        <TextView 
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:text="This should not be visible" />
+        <TextView android:id="@+id/link"
+          android:text="http://www.google.co.uk"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:autoLink="web"
+          />
+        <TextView android:id="@+id/title"
+          android:text="Title Goes Here"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          />
+        <TextView android:id="@+id/author"
+          android:text="Author Goes Here"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          />
+        <TextView android:id="@+id/published"
+          android:text="Published Goes Here"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          />
+        <TextView android:id="@+id/description"
+          android:text="Description Goes Here"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          />
+      </LinearLayout>
       <TextView android:id="@+id/statusLabel"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:textStyle="bold"
           android:text="Status: " />
+      <!--
       <TextView android:id="@+id/statusText"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:text="..." />
+          -->
     </LinearLayout>
   </RelativeLayout>
 
