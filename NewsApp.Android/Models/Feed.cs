@@ -1,3 +1,4 @@
+#define FakeLoadFailure
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,9 @@ namespace NewsApp.Android.Models
         {
             try
             {
+#if FakeLoadFailure
+                throw new Exception("Fake load exception");
+#endif
                 var feed = TNX.RssReader.RssHelper.ReadFeed(Url);
                 FeedItems = feed.Items.Select(feedItem => new FeedItem { Title = feedItem.Title, Description = feedItem.Description, Author = feedItem.Author, Link = feedItem.Link, Published = feedItem.PublicationUtcTime }).ToList();
 #if DEBUG
@@ -32,8 +36,9 @@ namespace NewsApp.Android.Models
 #endif
                 try
                 {
-                    var success = SaveJson().Result;
-                } catch(Exception saveException)
+                    var success = Task.Run(SaveJson).Result;
+                }
+                catch (Exception saveException)
                 {
 #if DEBUG
                     System.Diagnostics.Debug.WriteLine("Error saving feed from " + Source + "/" + Category + " (" + Url + "): " + saveException.Message);
@@ -44,7 +49,7 @@ namespace NewsApp.Android.Models
 #if DEBUG
                 System.Diagnostics.Debug.WriteLine("Error loading feed from " + Source + "/" + Category + " (" + Url + "): " + ex.Message);
 #endif
-                var loaded = LoadJson(JsonName).Result;
+                var loaded = Task.Run(async () => await LoadJson(JsonName)).Result;
                 if(loaded != null)
                 {
 #if DEBUG

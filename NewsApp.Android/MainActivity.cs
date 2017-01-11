@@ -36,6 +36,7 @@ namespace NewsApp.Android
             });
             var allItems = feeds.SelectMany(feed => feed.FeedItems);
             var itemArray = allItems.ToArray();
+            currentItems = itemArray;
             //var itemString = itemArray.Select(item => item.Title).ToArray();
             var itemStrings = new[] { "Example entry", "Another entry", "Third item" };
 
